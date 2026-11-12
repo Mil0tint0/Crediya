@@ -1,0 +1,7 @@
+dependencies {
+	implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
+
+	// Agrega estas líneas para la base de datos PostgreSQL
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation project(':api-rest')
+}

@@ -1,0 +1,23 @@
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: crediya-auth-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: crediya_auth
+      POSTGRES_USER: crediya_user
+      POSTGRES_PASSWORD: crediya_pass_2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - crediya-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  crediya-network:
+    driver: bridge
